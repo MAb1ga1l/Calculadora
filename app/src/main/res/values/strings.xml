@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Calculadora</string>
+    <string name="miPrimerBoton">+ 1</string>
+    <string name="miSegundoBoton">- 1</string>
+    <string name="Display">0</string>
+    <string name="botonCero">0</string>
+    <string name="BotonUno">1</string>
+    <string name="BotonDos">2</string>
+    <string name="BotonTres">3</string>
+    <string name="BotonCuatro">4</string>
+    <string name="BotonCinco">5</string>
+    <string name="BotonSeis">6</string>
+    <string name="BotonSiete">7</string>
+    <string name="BotonOcho">8</string>
+    <string name="BotonNueve">9</string>
+    <string name="BotonSuma">+</string>
+    <string name="BotonMenos">-</string>
+    <string name="BotonMul">*</string>
+    <string name="BotonDiv">/</string>
+    <string name="BotonIgual">=</string>
+    <string name="BotonPunto">.</string>
+    <string name="BotonBorrarTodo">AC</string>
+    <string name="BotonBorrarGuardado">MC</string>
+    <string name="BotonGuardar">Store</string>
+    <string name="BotonMostrarGuardado">Recall</string>
+    <string name="BotonSumaGuardado">Mem +</string>
+    <string name="BotonRestarGuardado">Mem -</string>
+    <string name="BotonRaizDe">root n</string>
+    <string name="BotonElevarA">x ^ n</string>
+    <string name="BotonElevarDiez">10 ^ x</string>
+    <string name="BotonCambiarDecima">1 / x</string>
+    <string name="BotonRaiz">sqrt</string>
+    <string name="BotonSeno">sin</string>
+    <string name="BotonCoseno">cos</string>
+    <string name="BotonCambioSigno">+ / -</string>
+    <string name="BotonBorrarUno">Delete</string>
+    <string name="BotonPi">Pi</string>
+</resources>

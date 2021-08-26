@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/buttonBorrarTodo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/BotonBorrarTodo"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonBorrarGuardado"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCorrecion"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonBorrarGuardado"
+        app:layout_constraintTop_toTopOf="@+id/buttonBorrarGuardado" />
+
+    <Button
+        android:id="@+id/buttonBorrarGuardado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/BotonBorrarGuardado"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSiete"
+        app:layout_constraintEnd_toStartOf="@+id/buttonBorrarTodo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDiv" />
+
+    <Button
+        android:id="@+id/buttonRaiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="operacionCompleja"
+        android:text="@string/BotonRaiz"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonSeno"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonSeno"
+        app:layout_constraintTop_toTopOf="@+id/buttonSeno"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonElevarDiez"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="operacionCompleja"
+        android:text="@string/BotonElevarDiez"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonCambiarDecima"
+        app:layout_constraintEnd_toStartOf="@+id/buttonElevarA"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonCambiarDecima"
+        app:layout_constraintTop_toTopOf="@+id/buttonCambiarDecima"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonMostrarGuardado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/BotonMostrarGuardado"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonSumaGuardado"
+        app:layout_constraintEnd_toStartOf="@+id/buttonGuardar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonSumaGuardado"
+        app:layout_constraintTop_toTopOf="@+id/buttonSumaGuardado"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonRestaGuardado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/BotonRestarGuardado"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDiv"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSumaGuardado"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCambiarDecima" />
+
+    <Button
+        android:id="@+id/buttonSeno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="operacionCompleja"
+        android:text="@string/BotonSeno"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonCoseno"
+        app:layout_constraintEnd_toStartOf="@+id/buttonRaiz"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonCoseno"
+        app:layout_constraintTop_toTopOf="@+id/buttonCoseno"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonRaizDe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="operacion"
+        android:text="@string/BotonRaizDe"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonElevarA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonElevarA"
+        app:layout_constraintTop_toTopOf="@+id/buttonElevarA"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonMul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="operacion"
+        android:text="@string/BotonMul"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonResta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonResta"
+        app:layout_constraintTop_toTopOf="@+id/buttonResta"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonResta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="operacion"
+        android:text="@string/BotonMenos"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonSuma"
+        app:layout_constraintEnd_toStartOf="@+id/buttonMul"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonSuma"
+        app:layout_constraintTop_toTopOf="@+id/buttonSuma"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonSumaGuardado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/BotonSumaGuardado"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonRestaGuardado"
+        app:layout_constraintEnd_toStartOf="@+id/buttonMostrarGuardado"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonRestaGuardado"
+        app:layout_constraintTop_toTopOf="@+id/buttonRestaGuardado"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonElevarA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="operacion"
+        android:text="@string/BotonElevarA"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonElevarDiez"
+        app:layout_constraintEnd_toStartOf="@+id/buttonRaizDe"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonElevarDiez"
+        app:layout_constraintTop_toTopOf="@+id/buttonElevarDiez"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/display"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/Display"
+        android:textAlignment="viewEnd"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRaiz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/displayOperaciones" />
+
+    <TextView
+        android:id="@+id/displayOperaciones"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/Display"
+        android:textAlignment="viewEnd"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/display"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonGuardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/BotonGuardar"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonMostrarGuardado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonMostrarGuardado"
+        app:layout_constraintTop_toTopOf="@+id/buttonMostrarGuardado"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonCoseno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="operacionCompleja"
+        android:text="@string/BotonCoseno"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonCambioSigno"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSeno"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonCambioSigno"
+        app:layout_constraintTop_toTopOf="@+id/buttonCambioSigno"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonDiv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="operacion"
+        android:text="@string/BotonDiv"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonBorrarGuardado"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSuma"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonRestaGuardado" />
+
+    <Button
+        android:id="@+id/buttonCambioSigno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="operacionCompleja"
+        android:text="@string/BotonCambioSigno"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCambiarDecima"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCoseno"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/display" />
+
+    <Button
+        android:id="@+id/buttonCambiarDecima"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="operacionCompleja"
+        android:text="@string/BotonCambiarDecima"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRestaGuardado"
+        app:layout_constraintEnd_toStartOf="@+id/buttonElevarDiez"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCambioSigno" />
+
+    <Button
+        android:id="@+id/buttonSuma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="operacion"
+        android:text="@string/BotonSuma"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonDiv"
+        app:layout_constraintEnd_toStartOf="@+id/buttonResta"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonDiv"
+        app:layout_constraintTop_toTopOf="@+id/buttonDiv"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonOcho"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="numPresionado"
+        android:text="@string/BotonOcho"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonSiete"
+        app:layout_constraintEnd_toStartOf="@+id/buttonNueve"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonSiete"
+        app:layout_constraintTop_toTopOf="@+id/buttonSiete" />
+
+    <Button
+        android:id="@+id/buttonNueve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="numPresionado"
+        android:text="@string/BotonNueve"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonOcho"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonOcho"
+        app:layout_constraintTop_toTopOf="@+id/buttonOcho" />
+
+    <Button
+        android:id="@+id/buttonDos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="numPresionado"
+        android:text="@string/BotonDos"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/botonCero"
+        app:layout_constraintEnd_toStartOf="@+id/buttonTres"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonUno"
+        app:layout_constraintTop_toTopOf="@+id/buttonUno" />
+
+    <Button
+        android:id="@+id/botonCero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="numPresionado"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:text="@string/botonCero"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPunto"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonUno"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <Button
+        android:id="@+id/buttonSiete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="numPresionado"
+        android:text="@string/BotonSiete"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCuatro"
+        app:layout_constraintEnd_toStartOf="@+id/buttonOcho"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBorrarGuardado" />
+
+    <Button
+        android:id="@+id/buttonCinco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="numPresionado"
+        android:text="@string/BotonCinco"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonCuatro"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSeis"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonCuatro"
+        app:layout_constraintTop_toTopOf="@+id/buttonCuatro" />
+
+    <Button
+        android:id="@+id/buttonCuatro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="numPresionado"
+        android:text="@string/BotonCuatro"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonUno"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCinco"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSiete" />
+
+    <Button
+        android:id="@+id/buttonUno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="numPresionado"
+        android:text="@string/BotonUno"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/botonCero"
+        app:layout_constraintEnd_toStartOf="@+id/buttonDos"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCuatro" />
+
+    <Button
+        android:id="@+id/buttonIgual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="operacion"
+        android:text="@string/BotonIgual"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonPunto"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPi"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonPunto"
+        app:layout_constraintTop_toTopOf="@+id/buttonPunto" />
+
+    <Button
+        android:id="@+id/buttonTres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="numPresionado"
+        android:text="@string/BotonTres"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonDos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonDos"
+        app:layout_constraintTop_toTopOf="@+id/buttonDos" />
+
+    <Button
+        android:id="@+id/buttonSeis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="numPresionado"
+        android:text="@string/BotonSeis"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonCinco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonCinco"
+        app:layout_constraintTop_toTopOf="@+id/buttonCinco" />
+
+    <Button
+        android:id="@+id/buttonPunto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="punto"
+        android:text="@string/BotonPunto"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/botonCero"
+        app:layout_constraintEnd_toStartOf="@+id/buttonIgual"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/botonCero"
+        app:layout_constraintTop_toTopOf="@+id/botonCero" />
+
+    <ImageButton
+        android:id="@+id/buttonCorrecion"
+        android:layout_width="87dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/BotonBorrarUno"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonBorrarTodo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonBorrarTodo"
+        app:layout_constraintTop_toTopOf="@+id/buttonBorrarTodo"
+        app:srcCompat="@android:drawable/ic_input_delete"
+        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+
+    <Button
+        android:id="@+id/buttonPi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/BotonPi"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonIgual"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonIgual"
+        app:layout_constraintTop_toTopOf="@+id/buttonIgual" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
