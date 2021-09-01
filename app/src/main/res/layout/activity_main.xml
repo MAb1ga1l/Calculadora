@@ -4,29 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="ExtraText">
 
     <Button
         android:id="@+id/buttonBorrarTodo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="limpiarCalculadora"
         android:text="@string/BotonBorrarTodo"
         app:layout_constraintBottom_toBottomOf="@+id/buttonBorrarGuardado"
-        app:layout_constraintEnd_toStartOf="@+id/buttonCorrecion"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCorreccion"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonBorrarGuardado"
-        app:layout_constraintTop_toTopOf="@+id/buttonBorrarGuardado" />
+        app:layout_constraintTop_toTopOf="@+id/buttonBorrarGuardado"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonBorrarGuardado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="operacionesMemoria"
         android:text="@string/BotonBorrarGuardado"
         app:layout_constraintBottom_toTopOf="@+id/buttonSiete"
         app:layout_constraintEnd_toStartOf="@+id/buttonBorrarTodo"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonDiv" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonDiv"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonRaiz"
@@ -39,7 +44,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonSeno"
         app:layout_constraintTop_toTopOf="@+id/buttonSeno"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonElevarDiez"
@@ -52,30 +58,35 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonCambiarDecima"
         app:layout_constraintTop_toTopOf="@+id/buttonCambiarDecima"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonMostrarGuardado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="operacionesMemoria"
         android:text="@string/BotonMostrarGuardado"
         app:layout_constraintBottom_toBottomOf="@+id/buttonSumaGuardado"
         app:layout_constraintEnd_toStartOf="@+id/buttonGuardar"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonSumaGuardado"
         app:layout_constraintTop_toTopOf="@+id/buttonSumaGuardado"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonRestaGuardado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="operacionesMemoria"
         android:text="@string/BotonRestarGuardado"
         app:layout_constraintBottom_toTopOf="@+id/buttonDiv"
         app:layout_constraintEnd_toStartOf="@+id/buttonSumaGuardado"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCambiarDecima" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonCambiarDecima"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonSeno"
@@ -88,7 +99,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonCoseno"
         app:layout_constraintTop_toTopOf="@+id/buttonCoseno"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonRaizDe"
@@ -101,7 +113,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonElevarA"
         app:layout_constraintTop_toTopOf="@+id/buttonElevarA"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonMul"
@@ -115,7 +128,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonResta"
         app:layout_constraintTop_toTopOf="@+id/buttonResta"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonResta"
@@ -129,19 +143,22 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonSuma"
         app:layout_constraintTop_toTopOf="@+id/buttonSuma"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonSumaGuardado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="operacionesMemoria"
         android:text="@string/BotonSumaGuardado"
         app:layout_constraintBottom_toBottomOf="@+id/buttonRestaGuardado"
         app:layout_constraintEnd_toStartOf="@+id/buttonMostrarGuardado"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonRestaGuardado"
         app:layout_constraintTop_toTopOf="@+id/buttonRestaGuardado"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonElevarA"
@@ -154,7 +171,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonElevarDiez"
         app:layout_constraintTop_toTopOf="@+id/buttonElevarDiez"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="UsingOnClickInXml" />
 
     <TextView
         android:id="@+id/display"
@@ -190,13 +208,15 @@
         android:id="@+id/buttonGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="operacionesMemoria"
         android:text="@string/BotonGuardar"
         app:layout_constraintBottom_toBottomOf="@+id/buttonMostrarGuardado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonMostrarGuardado"
         app:layout_constraintTop_toTopOf="@+id/buttonMostrarGuardado"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonCoseno"
@@ -209,7 +229,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonCambioSigno"
         app:layout_constraintTop_toTopOf="@+id/buttonCambioSigno"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonDiv"
@@ -222,7 +243,8 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonSuma"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonRestaGuardado" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonRestaGuardado"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonCambioSigno"
@@ -234,7 +256,8 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonCoseno"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/display" />
+        app:layout_constraintTop_toBottomOf="@+id/display"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonCambiarDecima"
@@ -246,7 +269,8 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonElevarDiez"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCambioSigno" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonCambioSigno"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonSuma"
@@ -260,7 +284,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonDiv"
         app:layout_constraintTop_toTopOf="@+id/buttonDiv"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonOcho"
@@ -273,7 +298,8 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonNueve"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonSiete"
-        app:layout_constraintTop_toTopOf="@+id/buttonSiete" />
+        app:layout_constraintTop_toTopOf="@+id/buttonSiete"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonNueve"
@@ -286,7 +312,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonOcho"
-        app:layout_constraintTop_toTopOf="@+id/buttonOcho" />
+        app:layout_constraintTop_toTopOf="@+id/buttonOcho"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonDos"
@@ -299,7 +326,8 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonTres"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonUno"
-        app:layout_constraintTop_toTopOf="@+id/buttonUno" />
+        app:layout_constraintTop_toTopOf="@+id/buttonUno"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/botonCero"
@@ -315,7 +343,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonUno"
-        tools:ignore="DuplicateSpeakableTextCheck" />
+        tools:ignore="DuplicateSpeakableTextCheck,UsingOnClickInXml"/>
 
     <Button
         android:id="@+id/buttonSiete"
@@ -328,7 +356,8 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonOcho"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonBorrarGuardado" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonBorrarGuardado"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonCinco"
@@ -341,7 +370,8 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonSeis"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonCuatro"
-        app:layout_constraintTop_toTopOf="@+id/buttonCuatro" />
+        app:layout_constraintTop_toTopOf="@+id/buttonCuatro"
+        tools:ignore="UsingOnClickInXml"/>
 
     <Button
         android:id="@+id/buttonCuatro"
@@ -354,7 +384,8 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonCinco"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSiete" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonSiete"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonUno"
@@ -367,7 +398,8 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonDos"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCuatro" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonCuatro"
+        tools:ignore="UsingOnClickInXml"/>
 
     <Button
         android:id="@+id/buttonIgual"
@@ -380,7 +412,8 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonPi"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonPunto"
-        app:layout_constraintTop_toTopOf="@+id/buttonPunto" />
+        app:layout_constraintTop_toTopOf="@+id/buttonPunto"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonTres"
@@ -393,7 +426,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonDos"
-        app:layout_constraintTop_toTopOf="@+id/buttonDos" />
+        app:layout_constraintTop_toTopOf="@+id/buttonDos"
+        tools:ignore="UsingOnClickInXml"/>
 
     <Button
         android:id="@+id/buttonSeis"
@@ -406,7 +440,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonCinco"
-        app:layout_constraintTop_toTopOf="@+id/buttonCinco" />
+        app:layout_constraintTop_toTopOf="@+id/buttonCinco"
+        tools:ignore="UsingOnClickInXml"/>
 
     <Button
         android:id="@+id/buttonPunto"
@@ -420,10 +455,11 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonIgual"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/botonCero"
-        app:layout_constraintTop_toTopOf="@+id/botonCero" />
+        app:layout_constraintTop_toTopOf="@+id/botonCero"
+        tools:ignore="UsingOnClickInXml"/>
 
     <ImageButton
-        android:id="@+id/buttonCorrecion"
+        android:id="@+id/buttonCorreccion"
         android:layout_width="87dp"
         android:layout_height="48dp"
         android:contentDescription="@string/BotonBorrarUno"
