@@ -9,6 +9,8 @@ private const val TAG = "CalculadoraViewModel"
 class CalculadoreViewModel : ViewModel(){
 
     private val modeloCalculadora = ModeloCalculadora()
+    var resultado = 0.0
+    var recibeNum = false
 
     init {
         Log.d(TAG,"Instancia de ViewModel creada")

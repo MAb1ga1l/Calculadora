@@ -12,7 +12,6 @@ class MainActivity : AppCompatActivity() {
     //Primero determinamos la variable que almbraremos
     private lateinit var display:TextView
     private lateinit var displayOperaciones : TextView
-    private var recibeNum = false
     private var resultado : Double = 0.0
     private val calculadoreViewModel :CalculadoreViewModel by lazy {
        //Sección para mantener el estado a pesar de que se rote el telefono
@@ -30,17 +29,27 @@ class MainActivity : AppCompatActivity() {
         displayOperaciones = findViewById(R.id.displayOperaciones)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        //Para guardar estado correctamente mandamos y guardamos lo que se encuentre e el display al ViewModel
+        calculadoreViewModel.resultado = display.text.toString().toDouble()
+    }
 
+    override fun onStart() {
+        super.onStart()
+        //Se retoma lo que este guardado
+        display.text = calculadoreViewModel.resultado.toString()
+    }
 
     //función para tomar cualquier número que se presione
     fun numPresionado(unBoton:View){
         val digito = (unBoton as Button).text
         //este if es para que se escriba el numero que entra sin el 0 inicial
-        if(recibeNum){
-            displayOperaciones.append(digito)
+        if(calculadoreViewModel.recibeNum){
+            display.append(digito)
         }else{
             display.text = digito
-            recibeNum = true
+            calculadoreViewModel.recibeNum = true
         }
         displayOperaciones.text = calculadoreViewModel.historialOperaciones(digito.toString(),"numero")
     }
@@ -48,9 +57,9 @@ class MainActivity : AppCompatActivity() {
     //función para Operaciones Basicos
     fun operacion(unBoton: View){
         val operacionRecibida = (unBoton as Button).text.toString()
-        if(recibeNum){
+        if(calculadoreViewModel.recibeNum){
             calculadoreViewModel.setOperando(display.text.toString().toDouble())
-            recibeNum = false
+            calculadoreViewModel.recibeNum = false
 
         }
         resultado = calculadoreViewModel.ejecutaOperacionBasica(operacionRecibida)
@@ -66,7 +75,7 @@ class MainActivity : AppCompatActivity() {
         resultado = calculadoreViewModel.ejecutaOperacionCompleja(operacionRecibida)
         val rounded = String.format("%.2f", resultado)
         display.text = rounded
-        recibeNum = false
+        calculadoreViewModel.recibeNum = false
     }
 
     //Existe otra manera de alambrar que basiamente es crear una función que se llame cuando se presione el boton
@@ -74,11 +83,11 @@ class MainActivity : AppCompatActivity() {
     //El Supress basicamente es para decir que se ignore ese warning
     //En este caso lo usamos por que no hay forma de eliminar el warning
     fun punto(unBoton: View){
-        if(recibeNum){
+        if(calculadoreViewModel.recibeNum){
             display.text = calculadoreViewModel.validaPunto(display.text.toString())
         }else{
             display.text = calculadoreViewModel.validaPunto("0")
-            recibeNum = true
+            calculadoreViewModel.recibeNum = true
         }
         displayOperaciones.text = calculadoreViewModel.historialOperaciones(".","numero")
     }
@@ -88,7 +97,7 @@ class MainActivity : AppCompatActivity() {
         val operacionRecibida = (unBoton as Button).text.toString()
         resultado = calculadoreViewModel.ejecutaOperacionMemoria(operacionRecibida,display.text.toString().toDouble())
         display.text = resultado.toString()
-        recibeNum = false
+        calculadoreViewModel.recibeNum = false
     }
 
     //función para AC que es borrar todo lo existente
@@ -96,7 +105,7 @@ class MainActivity : AppCompatActivity() {
     fun limpiarCalculadora(unBoton: View){
         display.text = "0"
         displayOperaciones.text = "0"
-        recibeNum = false
+        calculadoreViewModel.recibeNum = false
         calculadoreViewModel.limpiaTodo()
     }
 
