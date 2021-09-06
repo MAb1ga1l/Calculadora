@@ -396,12 +396,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/botonesNumeros"
+        android:onClick="numPresionado"
         android:text="@string/BotonPi"
         app:layout_constraintBottom_toBottomOf="@+id/buttonSumaGuardado"
         app:layout_constraintEnd_toStartOf="@+id/buttonSumaGuardado"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonElevarA"
-        app:layout_constraintTop_toTopOf="@+id/buttonSumaGuardado" />
+        app:layout_constraintTop_toTopOf="@+id/buttonSumaGuardado"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonCambioSigno"

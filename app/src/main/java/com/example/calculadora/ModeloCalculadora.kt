@@ -1,10 +1,10 @@
 package com.example.calculadora
 
 
-import android.util.Log
+
 import kotlin.math.*
 
-private const val TAG = "ModeloCalculadora"
+//private const val TAG = "ModeloCalculadora"
 class ModeloCalculadora {
 
     private var numeroUno : Double = 0.0 // Primer número ingresado para la operación
@@ -175,9 +175,9 @@ class ModeloCalculadora {
 
     //En caso de borrar solo un elemento del número que se este ingresando en cualquiera de los dos displays
     fun borrarElementoHistorial():String{
-        Log.d(TAG,"Entra $historial")
+        //Log.d(TAG,"Entra $historial")
         historial=historial.dropLast(1)
-        Log.d(TAG,"Sale $historial")
+        //Log.d(TAG,"Sale $historial")
 
         return historial
     }

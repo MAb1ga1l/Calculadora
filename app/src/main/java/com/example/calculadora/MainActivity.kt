@@ -1,5 +1,6 @@
 package com.example.calculadora
 
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -60,7 +61,11 @@ class MainActivity : AppCompatActivity() {
     fun operacion(unBoton: View){
         val operacionRecibida = (unBoton as Button).text.toString()
         if(calculadoreViewModel.recibeNum){
-            calculadoreViewModel.setOperando(display.text.toString().toDouble())
+            if(display.text.toString() == "Pi"){
+                calculadoreViewModel.setOperando(3.1416)
+            }else{
+                calculadoreViewModel.setOperando(display.text.toString().toDouble())
+            }
             calculadoreViewModel.recibeNum = false
         }
         resultado = calculadoreViewModel.ejecutaOperacionBasica(operacionRecibida)
@@ -105,10 +110,8 @@ class MainActivity : AppCompatActivity() {
 
     @Suppress("UNUSED_PARAMETER")
     fun borrarElemento(unBoton: View){
-        if(calculadoreViewModel.recibeNum){
-            display.text = display.text.toString().dropLast(1)
-            displayOperaciones.text = calculadoreViewModel.borrarElementoHistorial()
-        }
+        display.text = display.text.toString().dropLast(1)
+        displayOperaciones.text = calculadoreViewModel.borrarElementoHistorial()
     }
 
     //función para AC que es borrar todo lo existente
