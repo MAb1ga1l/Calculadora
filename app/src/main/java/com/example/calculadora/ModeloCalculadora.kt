@@ -2,12 +2,9 @@ package com.example.calculadora
 
 
 import android.util.Log
-import kotlin.math.cos
-import kotlin.math.pow
-import kotlin.math.sin
-import kotlin.math.sqrt
+import kotlin.math.*
 
-private const val TAG = "Modelo Calculadora"
+private const val TAG = "ModeloCalculadora"
 class ModeloCalculadora {
 
     private var numeroUno : Double = 0.0 // Primer número ingresado para la operación
@@ -114,7 +111,6 @@ class ModeloCalculadora {
 
     //función para regresar el String con el historial de operaciones
     fun historialOperaciones(valorR : String,opcionAppend:String,escribiendoNum :Boolean ) : String{
-        Log.d(TAG,"$historialvalido,$valorR,$opcionAppend,${numeros[0]},${numeros[1]}")
         if(historialvalido>=2){
             historial = ""
             historialvalido = 1
@@ -175,5 +171,14 @@ class ModeloCalculadora {
                           aux = aux.plus(numeros[historialvalido])}
         }
         numeros[historialvalido] = aux
+    }
+
+    //En caso de borrar solo un elemento del número que se este ingresando en cualquiera de los dos displays
+    fun borrarElementoHistorial():String{
+        Log.d(TAG,"Entra $historial")
+        historial=historial.dropLast(1)
+        Log.d(TAG,"Sale $historial")
+
+        return historial
     }
 }

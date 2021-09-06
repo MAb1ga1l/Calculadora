@@ -103,6 +103,14 @@ class MainActivity : AppCompatActivity() {
         calculadoreViewModel.recibeNum = false
     }
 
+    @Suppress("UNUSED_PARAMETER")
+    fun borrarElemento(unBoton: View){
+        if(calculadoreViewModel.recibeNum){
+            display.text = display.text.toString().dropLast(1)
+            displayOperaciones.text = calculadoreViewModel.borrarElementoHistorial()
+        }
+    }
+
     //función para AC que es borrar todo lo existente
     @Suppress("UNUSED_PARAMETER")
     fun limpiarCalculadora(unBoton: View){

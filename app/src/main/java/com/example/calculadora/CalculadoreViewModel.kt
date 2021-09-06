@@ -54,6 +54,10 @@ class CalculadoreViewModel : ViewModel(){
         return modeloCalculadora.historialOperaciones(valorR,opcionAppend,recibeNum)
     }
 
+    fun borrarElementoHistorial() : String{
+        return modeloCalculadora.borrarElementoHistorial()
+    }
+
     fun guardarEstadoHistorial(){
         //Para poder guardar un correcto estado y una buena interacción con el historial
         //al momento de rotar el teléfono se guardan las variables necesarias
