@@ -1,11 +1,13 @@
 package com.example.calculadora
 
 
+import android.util.Log
 import kotlin.math.cos
 import kotlin.math.pow
 import kotlin.math.sin
 import kotlin.math.sqrt
 
+private const val TAG = "Modelo Calculadora"
 class ModeloCalculadora {
 
     private var numeroUno : Double = 0.0 // Primer número ingresado para la operación
@@ -13,20 +15,22 @@ class ModeloCalculadora {
     private var operacion = "" //Operación a realizar
     private var puntoActivo = false
     private var valorMemoria : Double = 0.0 //Valor guardado en memoria para operaciones
-    private var historial :String = "" //Historial que se mostrará en el display de Operaciones
-    private var historialvalido = 0 //variable para distinguir el número de elementos en el historial
+    var historial :String = "" //Historial que se mostrará en el display de Operaciones
+    var historialvalido = 0 //variable para ver en que número del arreglo estamos
+    var numeros = arrayOf("","") // números que se van a presentar en el historial
+    var operacionMostrada = "" // operación que se mostrara en el historial
 
     //función para recibir operandos
     fun setOperando(unOperando : Double){
         numeroUno = unOperando
-        historialvalido += 1
         puntoActivo = false
+        numeros[historialvalido] = unOperando.toString()
+        historialvalido += 1
     }
 
 
     // ejecutar operaciónes basicas
     fun ejecutaOperacionBasica(operacionR : String): Double {
-        historialvalido += 1
         ejecutaOperacionEnEspera()
         operacion =  operacionR
         numeroDos = numeroUno
@@ -45,7 +49,6 @@ class ModeloCalculadora {
             "/" -> numeroUno = numeroDos/numeroUno
             "x ^ n" -> numeroUno = numeroDos.pow(numeroUno)
             "root n" -> numeroUno = numeroDos.pow(1/numeroUno)
-            "=" -> historialvalido = 3
         }
     }
 
@@ -58,6 +61,7 @@ class ModeloCalculadora {
             "sqrt" -> numeroUno = sqrt(numeroUno)
             "1 / x"-> numeroUno = 1/numeroUno
             "10 ^ x" -> numeroUno = 10.0.pow(numeroUno)
+
         }
         return if (numeroUno.isNaN() || numeroUno.isInfinite()){
             0.0
@@ -74,6 +78,7 @@ class ModeloCalculadora {
         }else{
             puntoActivo = true
             operando.plus(".")
+            historialOperaciones(".","numero",true)
         }
     }
 
@@ -101,34 +106,74 @@ class ModeloCalculadora {
         puntoActivo = false
         valorMemoria = 0.0
         historial=""
-        historialvalido =0
+        historialvalido = 0
+        numeros[0] = ""
+        numeros[1] = ""
+        operacionMostrada = ""
     }
 
     //función para regresar el String con el historial de operaciones
-    fun historialOperaciones(valorR : String,opcionAppend:String) : String{
+    fun historialOperaciones(valorR : String,opcionAppend:String,escribiendoNum :Boolean ) : String{
+        Log.d(TAG,"$historialvalido,$valorR,$opcionAppend,${numeros[0]},${numeros[1]}")
+        if(historialvalido>=2){
+            historial = ""
+            historialvalido = 1
+            numeros[0] = valorR
+            numeros[1] = ""
+        }
         when (opcionAppend){
-            "numero" -> agregarNumeroAHistorial(valorR)
-            "opI" -> agregarOperacionIndividual(valorR)
+            "numero" -> {if (escribiendoNum){ agregarNumeroAHistorial(valorR)}}
+            "opI" -> {agregarOperacionIndividual(valorR)}
             "opC" -> agregarOperacionComplementaria(valorR)
         }
+
+        if(historialvalido==0){
+            historial = ""
+            historial = historial.plus(numeros[historialvalido])
+        }
+        if(historialvalido == 1){
+            historial = ""
+            historial = historial.plus(numeros[0])
+            historial = historial.plus(operacionMostrada)
+            historial = historial.plus(numeros[historialvalido])
+        }
+
         return historial
     }
 
     private fun agregarNumeroAHistorial(valorR: String){
-        if(historialvalido==3){
-            //En caso de ser necesario borrar el historial
-            historial = valorR
-            historialvalido = 0
-        }else{
-            historial = historial.plus(valorR)
-        }
+        numeros[historialvalido] = numeros[historialvalido].plus(valorR)
     }
 
     private fun agregarOperacionIndividual(valorR: String){
-
+        if(valorR == "="){
+            historialvalido = 1
+            numeros[0] = numeroDos.toString()
+            numeros[1] = ""
+            operacionMostrada = ""
+        }else{
+            operacionMostrada = valorR
+        }
     }
 
     private fun agregarOperacionComplementaria(valorR: String){
-
+        var aux = " "
+        when(valorR){
+            "+ / -" -> aux = (numeros[historialvalido].toDouble() * -1).toString()
+            "cos" ->{ aux = aux.plus(" cos(")
+                      aux = aux.plus(numeros[historialvalido])
+                      aux = aux.plus(")") }
+            "sin" -> { aux = aux.plus(" sin(")
+                       aux = aux.plus(numeros[historialvalido])
+                       aux = aux.plus(")") }
+            "sqrt" -> { aux = aux.plus(" sqrt(")
+                        aux = aux.plus(numeros[historialvalido])
+                        aux = aux.plus(")") }
+            "1 / x"-> { aux = aux.plus(" 1 / ")
+                        aux = aux.plus(numeros[historialvalido])}
+            "10 ^ x" -> { aux = aux.plus(" 10 ^ ")
+                          aux = aux.plus(numeros[historialvalido])}
+        }
+        numeros[historialvalido] = aux
     }
 }

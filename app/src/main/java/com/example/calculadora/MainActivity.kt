@@ -33,12 +33,14 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         //Para guardar estado correctamente mandamos y guardamos lo que se encuentre e el display al ViewModel
         calculadoreViewModel.resultado = display.text.toString().toDouble()
+        calculadoreViewModel.guardarEstadoHistorial()
     }
 
     override fun onStart() {
         super.onStart()
         //Se retoma lo que este guardado
         display.text = calculadoreViewModel.resultado.toString()
+        displayOperaciones.text = calculadoreViewModel.retomarEstadoHistorial()
     }
 
     //función para tomar cualquier número que se presione
@@ -60,17 +62,18 @@ class MainActivity : AppCompatActivity() {
         if(calculadoreViewModel.recibeNum){
             calculadoreViewModel.setOperando(display.text.toString().toDouble())
             calculadoreViewModel.recibeNum = false
-
         }
         resultado = calculadoreViewModel.ejecutaOperacionBasica(operacionRecibida)
         val rounded = String.format("%.2f", resultado)
         display.text = rounded
         displayOperaciones.text = calculadoreViewModel.historialOperaciones(rounded,"numero")
+        displayOperaciones.text = calculadoreViewModel.historialOperaciones(operacionRecibida,"opI")
     }
 
     //función para Operaciones Complejas con el número encontrado en el display
     fun operacionCompleja(unBoton: View){
         val operacionRecibida = (unBoton as Button).text.toString()
+        displayOperaciones.text = calculadoreViewModel.historialOperaciones(operacionRecibida,"opC")
         calculadoreViewModel.setOperando(display.text.toString().toDouble())
         resultado = calculadoreViewModel.ejecutaOperacionCompleja(operacionRecibida)
         val rounded = String.format("%.2f", resultado)
@@ -89,7 +92,6 @@ class MainActivity : AppCompatActivity() {
             display.text = calculadoreViewModel.validaPunto("0")
             calculadoreViewModel.recibeNum = true
         }
-        displayOperaciones.text = calculadoreViewModel.historialOperaciones(".","numero")
     }
 
     //función para botones con efectos en la memoria
@@ -97,6 +99,7 @@ class MainActivity : AppCompatActivity() {
         val operacionRecibida = (unBoton as Button).text.toString()
         resultado = calculadoreViewModel.ejecutaOperacionMemoria(operacionRecibida,display.text.toString().toDouble())
         display.text = resultado.toString()
+        displayOperaciones.text = calculadoreViewModel.historialOperaciones(resultado.toString(),"numero")
         calculadoreViewModel.recibeNum = false
     }
 
