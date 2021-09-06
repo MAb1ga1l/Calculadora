@@ -460,12 +460,13 @@
         android:layout_width="87dp"
         android:layout_height="48dp"
         android:contentDescription="@string/BotonBorrarUno"
+        android:onClick="borrarElemento"
         app:layout_constraintBottom_toBottomOf="@+id/buttonOcho"
         app:layout_constraintEnd_toStartOf="@+id/buttonOcho"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonBorrarTodo"
         app:layout_constraintTop_toTopOf="@+id/buttonOcho"
         app:srcCompat="@android:drawable/ic_input_delete"
-        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+        tools:ignore="ImageContrastCheck,SpeakableTextPresentCheck,UsingOnClickInXml" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
